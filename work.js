@@ -9,7 +9,3 @@
 //          Use http://devdocs.io/javascript/global_objects/date for reference on creating 
 //             Date() objects with a specific date.
 
-function sum(a, b) {
-	return a + b;
-}
-sum(7, 6)
