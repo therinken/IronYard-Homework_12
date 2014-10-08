@@ -9,3 +9,15 @@
 //          Use http://devdocs.io/javascript/global_objects/date for reference on creating 
 //             Date() objects with a specific date.
 
+var sum = 0,
+num = [1, 2, 3, 4];
+
+	for (var i = 0; i < 10; i++){
+		sum = sum + i;
+	};
+
+
+	num.forEach(function addNumber(value) {
+		sum += value;
+	});
+
