@@ -75,42 +75,50 @@ Array.prototype.max = function () {
 };
 var max = [76, 152, 13, 38].max(); // max === 152.
 
-
-
-
-
-
+//4.
 var longJohns = [Jay, Jimmy, Jonathon, John];
-
+var longest = [];
 for (var i = 0; i <= longJohns.length; i++) {
-
+    if(longest[i].length > longest.length)
 }
 
 //5.
 var dates = [
- new Date(2014, 10 , 4),
- new Date(2014, 10 , 3),
- new Date(2014, 09 , 30),
- new Date(2014, 09 , 1),
- new Date(2014, 07 , 13);
+ new Date(2014, 10, 4),
+ new Date(2014, 10, 3),
+ new Date(2014, 09, 30),
+ new Date(2014, 09, 1),
+ new Date(2014, 07, 13);
  ];
-
-function forEach(array, callback){
-    "use strict";
-    for(var i = 0; i < array.length; i++){
-        callback(array[i], i);
-    }
-}
 
 function sortDateForLoop(dates){
     var newArray = [],
         earliestDate;
     for(var i=0; i< dates.length; i++){
-        for(var j = 0; j< newArray.length; j++)
+        for(var j = 0; j < dates.length; j++){
+            if(+dates[j] < +dates[i]) {
+                var temp = dates[i];
+                dates[i] = dates[j];
+                dates[j] = temp;
+            }
+        }
     }
 }
-function sortDateForEach(){}
-function sortDateCustonForEach(){}
+
+function dateSwapper(value, i, array){
+    for(var j = 0; j < dates.length; j++){
+            if(+dates[j] < +dates[i]) {
+                var temp = dates[i];
+                dates[i] = dates[j];
+                dates[j] = temp;
+
+}
+function sortDateForEach(dates){
+    dates.forEach(dateSwapper);
+}
+function sortDateCustomForEach(dates){
+    forEach[dates, dateSwapper]
+}
 
 
 
