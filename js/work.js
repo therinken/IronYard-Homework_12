@@ -62,10 +62,12 @@ for (var i = 0; i < arr.length; i++) {
     }
 }
 console.log(largest); // is 152.
-
+    
 //forEach...
-arr.forEach(function(){
-	
+arr.forEach(function(i){
+   if (arr[i] > largest) {
+        largest = arr[i];
+    }
 });
 //custom...
 Array.prototype.max = function () {
@@ -83,3 +85,39 @@ var longJohns = [Jay, Jimmy, Jonathon, John];
 for (var i = 0; i <= longJohns.length; i++) {
 
 }
+
+//5.
+var dates = [
+ new Date(2014, 10 , 4),
+ new Date(2014, 10 , 3),
+ new Date(2014, 09 , 30),
+ new Date(2014, 09 , 1),
+ new Date(2014, 07 , 13);
+ ];
+
+function forEach(array, callback){
+    "use strict";
+    for(var i = 0; i < array.length; i++){
+        callback(array[i], i);
+    }
+}
+
+function sortDateForLoop(dates){
+    var newArray = [],
+        earliestDate;
+    for(var i=0; i< dates.length; i++){
+        for(var j = 0; j< newArray.length; j++)
+    }
+}
+function sortDateForEach(){}
+function sortDateCustonForEach(){}
+
+
+
+
+
+
+
+
+
+
