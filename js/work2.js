@@ -9,20 +9,16 @@ var customers = [
     { firstname : 'Jack', lastname : 'White'}
 ];
 
-console.log(customers);
-
-// YOUR CODE WILL GO IN THIS NEXT SECTION
-// find all customers whose firstname starts with 'J',
-// map() those people into an array of objects like: { name : c.firstname + " " + c.lastname }
-// then sort alphabetically
-
-var projections = customers
-    customers.filter(function(c){
-    	return c.firstname === /J\n/;
+var projections = customers.filter(function(c){
+    	if(c.firstname.charAt(0) == 'J') {
+            return c;
+        }
     })
-    customers.map(function(c){
-    	return })
-    customers.sort(sortByName);
+    .map(function(c){
+    	return c.firstname + " " + c.lastname;
+    })
+    .sort(sortByName);
+
 
 function sortByName(c1, c2) {
     "use strict";
@@ -30,3 +26,5 @@ function sortByName(c1, c2) {
 }
 
 console.log(projections);
+
+
