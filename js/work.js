@@ -1,5 +1,5 @@
 // Use EACH for the iteration methods discussed in class today (for loop, Array.forEach, 
-//	custom forEach) for EACH of the following problems...
+//  custom forEach) for EACH of the following problems...
 // 1. calculate the sum of numbers (can be any number of arguments)
 // 2. calculate the average of numbers
 // 3. find the largest number of the inputs
@@ -52,6 +52,7 @@ bagels.forEach(function(n) {
 console.log(avg); // avg = 450/4 = 112.5, sum = 450
 
 //3.
+
 //for loop...
 var arr = [76, 152, 13, 38];
 var largest = 0;
@@ -62,70 +63,85 @@ for (var i = 0; i < arr.length; i++) {
     }
 }
 console.log(largest); // is 152.
-    
+
 //forEach...
-arr.forEach(function(i){
-   if (arr[i] > largest) {
+arr.forEach(function(i) {
+    if (arr[i] > largest) {
         largest = arr[i];
     }
 });
-//custom...
-Array.prototype.max = function () {
-	return Math.max.apply(Math, this);
+
+//Custom...
+Array.prototype.max = function() {
+    return Math.max.apply(Math, this);
 };
 var max = [76, 152, 13, 38].max(); // max === 152.
 
 //4.
-var longJohns = [Jay, Jimmy, Jonathon, John];
-var longest = [];
-for (var i = 0; i <= longJohns.length; i++) {
-    if(longest[i].length > longest.length)
+// for loop..
+function longString(string) {
+    var longJohns = string.split(" ");
+    var longest = 0;
+    var word = null;
+
+    for (var i = 0; i < longJohns.length; i++) {
+        if (longest < longJohns[i].length) {
+            longest = longJohns[i].length;
+            word = longJohns[i];
+        }
+    };
+    return word;
 }
+console.log(longString("I am earthstuff")); // is 8.
+
+// forEach...
+function longString(string) {
+    var longJohns = string.split(" ");
+    var longest = 0;
+    var word = null;
+    longJohns.forEach(function(longJohns) {
+        if (longest < longJohns.length) {
+            longest = longJohns.length;
+            word = longJohns;
+        }
+    });
+    return word;
+}
+console.log(longString("I am earthstuff"));
+
+// Custom
+
+
 
 //5.
 var dates = [
- new Date(2014, 10, 4),
- new Date(2014, 10, 3),
- new Date(2014, 09, 30),
- new Date(2014, 09, 1),
- new Date(2014, 07, 13);
- ];
+    new Date(2014, 10, 4),
+    new Date(2014, 10, 3),
+    new Date(2014, 09, 30),
+    new Date(2014, 09, 1),
+    new Date(2014, 07, 13)
+];
 
 function sortDateForLoop(dates){
-    var newArray = [],
-        earliestDate;
-    for(var i=0; i< dates.length; i++){
-        for(var j = 0; j < dates.length; j++){
-            if(+dates[j] < +dates[i]) {
-                var temp = dates[i];
-                dates[i] = dates[j];
-                dates[j] = temp;
-            }
+    for(var i = 0; i < dates.length; i++){
+        findLowestDateAndSwap(null, i, dates);
+    }
+}
+
+function findLowestDateAndSwap(value, i, array){
+    for(var j = i+1; j < dates.length; j++){
+        if(+dates[j] < +dates[i]){
+            var temp = dates[i];
+            dates[i] = dates[j];
+            dates[j] = temp;
         }
     }
 }
 
-function dateSwapper(value, i, array){
-    for(var j = 0; j < dates.length; j++){
-            if(+dates[j] < +dates[i]) {
-                var temp = dates[i];
-                dates[i] = dates[j];
-                dates[j] = temp;
-
-}
 function sortDateForEach(dates){
-    dates.forEach(dateSwapper);
+    dates.forEach(findLowestDateAndSwap);
 }
+
 function sortDateCustomForEach(dates){
-    forEach[dates, dateSwapper]
+    forEach(dates, findLowestDateAndSwap);
 }
-
-
-
-
-
-
-
-
-
-
